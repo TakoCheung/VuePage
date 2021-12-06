@@ -1,4 +1,5 @@
 <template>
+  <VueScrollProgress>
  <div id="app">
  <!--<v-header :title=this.$route.name></v-header>-->
   <nav class="main-nav">
@@ -15,6 +16,7 @@
     </Sidebar>
   </nav>
  </div>
+ </VueScrollProgress>
 </template>
 
 <script>
@@ -49,7 +51,7 @@ html {
    border: 0; margin: 0; padding: 0;
    font-family: 'Lato';
    height: 100%;
-   background: rgba(0, 128, 255, 0.2)/*linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,5) 48%, rgba(249,248,113,1) 100%);*/
+   background: rgba(32, 77, 72, 50%)/*linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,5) 48%, rgba(249,248,113,1) 100%);*/
  }
 
  .logo {
