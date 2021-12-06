@@ -45,12 +45,5 @@
     }
 </script>
 <style>
-#progress-container-el {
-  background-color: transparent !important;
-
-}
-#progress-el {
-  background-color: red !important;
-}
 
 </style>

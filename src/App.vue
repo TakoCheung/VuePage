@@ -1,9 +1,9 @@
 <template>
-  <VueScrollProgress>
  <div id="app">
  <!--<v-header :title=this.$route.name></v-header>-->
   <nav class="main-nav">
    <Burger/>
+   <VueScrollProgress/>
    <router-view/>
 
    <Sidebar>
@@ -16,7 +16,6 @@
     </Sidebar>
   </nav>
  </div>
- </VueScrollProgress>
 </template>
 
 <script>

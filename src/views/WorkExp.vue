@@ -1,13 +1,18 @@
 <template>
-  <WorkExpCard/>
+  <div>
+    <HoneywellExpCard/>
+    <CstWorkExpCard/>
+  </div>
 </template>
 
 <script>
-import WorkExpCard from './WorkExpCard'
+import HoneywellExpCard from './HoneywellExpCard'
+import CstWorkExpCard from './CstWorkExpCard'
 export default {
   name: 'WorkExp',
   components: {
-    WorkExpCard,
+    HoneywellExpCard,
+    CstWorkExpCard
   }
 }
 </script>
