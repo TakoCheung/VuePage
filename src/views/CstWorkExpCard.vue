@@ -37,10 +37,7 @@
 
 <script>
 import CardFooter from './CardFooter'
-import {
-  cst,
-  cstToggle
-} from '@/state/cstState.js'
+import { cst } from '@/state/cstState.js'
 export default {
   name: 'CstWorkExpCard',
   components: {
@@ -54,16 +51,6 @@ export default {
     ],
   }),
   methods: {
-    btnCstClick(event) {
-      if (event.target.localName !== 'span') {
-        return
-      }
-      if (event.target.outerText.includes('DETAILS')) {
-        cstToggle.toggleCstDetails()
-      } else if (event.target.outerText.includes('TIME')) {
-        cstToggle.toggleCstTimeLine()
-      }
-    },
     onChartReady(chart, google) {
       this.chartsLib = google
     }
@@ -80,9 +67,6 @@ export default {
     getTimeLineShown() {
       return cst.cstTimeLineShown
     }
-  },
-  mounted() {
-    window.addEventListener("click", this.btnCstClick);
   }
 }
 </script>

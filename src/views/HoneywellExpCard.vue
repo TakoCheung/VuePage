@@ -1,5 +1,5 @@
 <template>
-<v-card :style="{height : getHwDetailsShown ? 570+'px':getHwTimeLineShown ? 256+'px':164+'px'}" class="mx-auto" max-width="344">
+<v-card :style="{height : getDetailsShown ? 570+'px':getTimeLineShown ? 256+'px':164+'px'}" class="mx-auto" max-width="344">
   <v-list-item three-line>
     <v-list-item-content>
       <div class="text-overline mb-4">
@@ -18,13 +18,13 @@
   <CardFooter id="hw"/>
 
   <v-expand-transition>
-    <v-card v-if="getHwTimeLineShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
+    <v-card v-if="getTimeLineShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
       <GChart :settings="{ packages: ['timeline']}" type="Timeline" :data="honeywellChartData" :options="honeywellChartOptions" />
       <CardFooter id="hw"/>
     </v-card>
   </v-expand-transition>
   <v-expand-transition>
-    <v-card v-if="getHwDetailsShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
+    <v-card v-if="getDetailsShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
       <v-card-text class="pb-0">Requirement Analysis:
         <p>• HTTPS became a requirement when we were designing the User Management Web App.</p>
         <p>Design:</p>
@@ -46,10 +46,7 @@
 
 <script>
 import CardFooter from './CardFooter'
-import {
-  hw,
-  hwToggle
-} from '@/state/honeywellState.js'
+import { hw } from '@/state/honeywellState.js'
 export default {
   name: 'HoneywellExpCard',
   components: {
@@ -63,16 +60,6 @@ export default {
     ],
   }),
   methods: {
-    btnHwClick(event) {
-      if (event.target.localName !== 'span') {
-        return
-      }
-      if (event.target.outerText.includes('DETAILS')) {
-        hwToggle.toggleHwDetails()
-      } else if (event.target.outerText.includes('TIME')) {
-        hwToggle.toggleHwTimeLine()
-      }
-    },
     onChartReady(chart, google) {
       this.chartsLib = google
     }
@@ -83,15 +70,12 @@ export default {
         colors: ['#d95f02']
       })
     },
-    getHwDetailsShown() {
+    getDetailsShown() {
       return hw.hwDetailsShown
     },
-    getHwTimeLineShown() {
+    getTimeLineShown() {
       return hw.hwTimeLineShown
     }
-  },
-  mounted() {
-    window.addEventListener("click", this.btnHwClick);
   }
 }
 </script>

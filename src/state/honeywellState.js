@@ -12,4 +12,3 @@ export const hwToggle = {
     hw.hwTimeLineShown = !hw.hwTimeLineShown
   }
 };
-export default hwToggle
