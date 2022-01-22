@@ -6,20 +6,20 @@
         <span style="color:orange">CentralSquare Techolgies</span>
       </div>
       <v-list-item-title class="text-h5 mb-1">
-        Software Developer (CO-OP)
+        Software Developer III
       </v-list-item-title>
       <v-list-item-subtitle>
         • Implemented a secured web API using HttpListener(https://docs.microsoft.com/en-us/dotnet/framework/network-programming/httplistener) with JWT authorization.
       </v-list-item-subtitle>
     </v-list-item-content>
-    <v-list-item-avatar tile size="80"><img src="../assets/hw.jpeg"></v-list-item-avatar>
+    <v-list-item-avatar tile size="80"><img src="../assets/cst.jpeg"></v-list-item-avatar>
   </v-list-item>
-  <CardFooter />
+  <CardFooter id="cst"/>
 
   <v-expand-transition>
     <v-card v-if="getTimeLineShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
-      <GChart :settings="{ packages: ['timeline']}" type="Timeline" :data="honeywellChartData" :options="honeywellChartOptions" />
-      <CardFooter />
+      <GChart :settings="{ packages: ['timeline']}" type="Timeline" :data="cstChartData" :options="cstChartOptions" />
+      <CardFooter id="cst"/>
     </v-card>
   </v-expand-transition>
   <v-expand-transition>
@@ -29,7 +29,7 @@
 <p>• Transformed an XML file to another XML file with the different formats by using XSLT and XPath.</p>
 <p>• Implemented a Field Change Extension which allows the developer to configure it by a single JSON file.</p>
       </v-card-text>
-      <CardFooter />
+      <CardFooter id="cst"/>
     </v-card>
   </v-expand-transition>
 </v-card>
@@ -38,30 +38,30 @@
 <script>
 import CardFooter from './CardFooter'
 import {
-  store,
-  mutations
-} from '../store.js'
+  cst,
+  cstToggle
+} from '@/state/cstState.js'
 export default {
-  name: 'HoneywellExpCard',
+  name: 'CstWorkExpCard',
   components: {
     CardFooter,
   },
   data: () => ({
     chartsLib: null,
-    honeywellChartData: [
+    cstChartData: [
       ['Organization', 'Start', 'End'],
-      ['Honeywell', new Date(2016, 1, 14), new Date(2018, 5, 14)]
+      ['CentralSquare Technolgies', new Date(2018, 5, 30), new Date(2021, 1, 2)]
     ],
   }),
   methods: {
-    btnClick(event) {
+    btnCstClick(event) {
       if (event.target.localName !== 'span') {
         return
       }
       if (event.target.outerText.includes('DETAILS')) {
-        mutations.toggleDetails()
+        cstToggle.toggleCstDetails()
       } else if (event.target.outerText.includes('TIME')) {
-        mutations.toggleTimeLine()
+        cstToggle.toggleCstTimeLine()
       }
     },
     onChartReady(chart, google) {
@@ -69,20 +69,20 @@ export default {
     }
   },
   computed: {
-    honeywellChartOptions() {
+    cstChartOptions() {
       return ({
         colors: ['#d95f02']
       })
     },
     getDetailsShown() {
-      return store.detailsShown
+      return cst.cstDetailsShown
     },
     getTimeLineShown() {
-      return store.timeLineShown
+      return cst.cstTimeLineShown
     }
   },
   mounted() {
-    window.addEventListener("click", this.btnClick);
+    window.addEventListener("click", this.btnCstClick);
   }
 }
 </script>

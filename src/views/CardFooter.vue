@@ -1,27 +1,33 @@
 <template>
   <v-card-actions>
     <v-btn rounded text @click="click">
-      {{getTimeLineShown() ? 'Hide' : 'Show'}} Time Line
+      {{timeLineShown() ? 'Hide' : 'Show'}} Time Line
     </v-btn>
     <v-btn rounded text @click="click">
-      {{getDetailsShown() ? 'Hide' : 'Show'}} Details
+      {{detailsShown() ? 'Hide' : 'Show'}} Details
     </v-btn>
   </v-card-actions>
 </template>
 
 <script>
-  import { store } from '../store.js'
+  import { hw } from '@/state/honeywellState.js'
+  import { cst } from '@/state/cstState.js'
   export default {
     name: 'CardFooter',
+    props: {id:String},
     methods:{
       click(){
         this.$emit("btnClick")
       },
-      getDetailsShown(){
-        return store.detailsShown
+      timeLineShown(){
+        if(this.id === "hw") return hw.hwTimeLineShown
+        else if(this.id === "cst") return cst.cstTimeLineShown
+        return false
       },
-      getTimeLineShown(){
-        return store.timeLineShown
+      detailsShown(){
+        if(this.id === "hw") return hw.hwDetailsShown
+        else if(this.id === "cst") return cst.cstDetailsShown
+        return false
       }
     }
   }

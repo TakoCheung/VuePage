@@ -13,7 +13,7 @@
     </div>
 </template>
 <script>
-    import { store, mutations } from '@/store.js'
+    import { store, mutations } from '@/state/store.js'
 
     export default {
         computed: {

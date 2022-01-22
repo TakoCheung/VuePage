@@ -21,7 +21,7 @@
 <script>
 import Burger from './components/Menu/Burger.vue';
 import Sidebar from './components/Menu/Sidebar.vue';
-import { store, mutations } from './store.js'
+import { store, mutations } from '@/state/store.js';
 export default {
  name: 'app',
  components: {

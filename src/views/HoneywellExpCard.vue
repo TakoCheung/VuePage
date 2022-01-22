@@ -1,5 +1,5 @@
 <template>
-<v-card :style="{height : getDetailsShown ? 570+'px':getTimeLineShown ? 256+'px':164+'px'}" class="mx-auto" max-width="344">
+<v-card :style="{height : getHwDetailsShown ? 570+'px':getHwTimeLineShown ? 256+'px':164+'px'}" class="mx-auto" max-width="344">
   <v-list-item three-line>
     <v-list-item-content>
       <div class="text-overline mb-4">
@@ -15,16 +15,16 @@
     </v-list-item-content>
     <v-list-item-avatar tile size="80"><img src="../assets/hw.jpeg"></v-list-item-avatar>
   </v-list-item>
-  <CardFooter />
+  <CardFooter id="hw"/>
 
   <v-expand-transition>
-    <v-card v-if="getTimeLineShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
+    <v-card v-if="getHwTimeLineShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
       <GChart :settings="{ packages: ['timeline']}" type="Timeline" :data="honeywellChartData" :options="honeywellChartOptions" />
-      <CardFooter />
+      <CardFooter id="hw"/>
     </v-card>
   </v-expand-transition>
   <v-expand-transition>
-    <v-card v-if="getDetailsShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
+    <v-card v-if="getHwDetailsShown" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%;">
       <v-card-text class="pb-0">Requirement Analysis:
         <p>• HTTPS became a requirement when we were designing the User Management Web App.</p>
         <p>Design:</p>
@@ -38,7 +38,7 @@
         <p>• Prevented introducing new implementation bug by integrating Fortify SCA scanning process into Gradle and the Gradle script into the Jenkins pipeline.</p>
         <p>• Reduced the deployment time by 50% by modifying the existing batch script.</p>
       </v-card-text>
-      <CardFooter />
+      <CardFooter id="hw"/>
     </v-card>
   </v-expand-transition>
 </v-card>
@@ -47,9 +47,9 @@
 <script>
 import CardFooter from './CardFooter'
 import {
-  store,
-  mutations
-} from '../store.js'
+  hw,
+  hwToggle
+} from '@/state/honeywellState.js'
 export default {
   name: 'HoneywellExpCard',
   components: {
@@ -63,14 +63,14 @@ export default {
     ],
   }),
   methods: {
-    btnClick(event) {
+    btnHwClick(event) {
       if (event.target.localName !== 'span') {
         return
       }
       if (event.target.outerText.includes('DETAILS')) {
-        mutations.toggleHwDetails()
+        hwToggle.toggleHwDetails()
       } else if (event.target.outerText.includes('TIME')) {
-        mutations.toggleHwTimeLine()
+        hwToggle.toggleHwTimeLine()
       }
     },
     onChartReady(chart, google) {
@@ -83,15 +83,15 @@ export default {
         colors: ['#d95f02']
       })
     },
-    getDetailsShown() {
-      return store.hwDetailsShown
+    getHwDetailsShown() {
+      return hw.hwDetailsShown
     },
-    getTimeLineShown() {
-      return store.hwTimeLineShown
+    getHwTimeLineShown() {
+      return hw.hwTimeLineShown
     }
   },
   mounted() {
-    window.addEventListener("click", this.btnClick);
+    window.addEventListener("click", this.btnHwClick);
   }
 }
 </script>
