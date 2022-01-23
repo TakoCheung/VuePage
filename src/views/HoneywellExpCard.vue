@@ -1,5 +1,5 @@
 <template>
-<v-card :style="{height : getDetailsShown ? 570+'px':getTimeLineShown ? 256+'px':164+'px'}" class="mx-auto" max-width="344">
+<v-card :style="{height : getDetailsShown ? 570+'px':getTimeLineShown ? 256+'px':164+'px', marginBottom:8+'px'}" class="mb-3" max-width="344">
   <v-list-item three-line>
     <v-list-item-content>
       <div class="text-overline mb-4">
