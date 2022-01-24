@@ -56,7 +56,7 @@ export default {
     chartsLib: null,
     honeywellChartData: [
       ['Organization', 'Start', 'End'],
-      ['Honeywell', new Date(2016, 1, 14), new Date(2018, 5, 14)]
+      ['Honeywell', new Date(2016, 12, 14), new Date(2018, 4, 14)]
     ],
   }),
   methods: {

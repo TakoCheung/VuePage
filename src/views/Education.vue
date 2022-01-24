@@ -29,11 +29,11 @@
           chartsLib: null,
           ncsuChartData: [
             [ 'School Name', 'Start', 'End'],
-            [ 'North Carolina State University', new Date(2014, 1, 19), new Date(2017, 12, 30)]
+            [ 'North Carolina State University', new Date(2014, 7, 19), new Date(2017, 12, 30)]
           ],
           wtccChartData: [
             [ 'School Name', 'Start', 'End'],
-            [ 'Wake Technical Community College', new Date(2010, 8, 19), new Date(2014, 12, 30)]
+            [ 'Wake Technical Community College', new Date(2010, 8, 19), new Date(2014, 4, 30)]
           ]
         }
       },

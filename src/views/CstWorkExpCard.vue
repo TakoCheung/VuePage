@@ -47,7 +47,7 @@ export default {
     chartsLib: null,
     cstChartData: [
       ['Organization', 'Start', 'End'],
-      ['CentralSquare Technolgies', new Date(2018, 5, 30), new Date(2021, 1, 2)]
+      ['CentralSquare Technolgies', new Date(2018, 4, 30), new Date(2020, 12, 2)]
     ],
   }),
   methods: {
