@@ -8,7 +8,6 @@
 
    <Sidebar>
     <ul class="sidebar-panel-nav">
-     <li @click="toggle"><router-link to="/">Welcome</router-link></li>
      <li @click="toggle"><router-link to="/about">About</router-link></li>
      <li @click="toggle"><router-link to="/education">Education</router-link></li>
      <li @click="toggle"><router-link to="/WorkExpriences">Work Expriences</router-link></li>

@@ -1,9 +1,9 @@
 <template>
-<v-card :style="{height : getDetailsShown ? 570+'px':getTimeLineShown ? 256+'px':164+'px', marginBottom:8+'px'}" class="mb-3" max-width="344">
+<v-card :style="{height : getDetailsShown ? 568+'px':getTimeLineShown ? 256+'px':164+'px', marginBottom:8+'px'}" class="mb-3" max-width="344">
   <v-list-item three-line>
     <v-list-item-content>
       <div class="text-overline mb-4">
-        <span style="color:red">Honeywell</span>
+        <span style="color:#ef3124">Honeywell</span>
       </div>
       <v-list-item-title class="text-h5 mb-1">
         Software Developer (CO-OP)
@@ -67,7 +67,7 @@ export default {
   computed: {
     honeywellChartOptions() {
       return ({
-        colors: ['#d95f02']
+        colors: ['#ef3124']
       })
     },
     getDetailsShown() {
@@ -79,11 +79,3 @@ export default {
   }
 }
 </script>
-<style>
-.v-card--reveal {
-  bottom: 0;
-  opacity: 1 !important;
-  position: absolute;
-  width: 100%;
-}
-</style>

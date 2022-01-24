@@ -3,7 +3,7 @@
   <v-list-item three-line>
     <v-list-item-content>
       <div class="text-overline mb-4">
-        <span style="color:orange">CentralSquare Techolgies</span>
+        <span style="color:#ef4b24">CentralSquare Techolgies</span>
       </div>
       <v-list-item-title class="text-h5 mb-1">
         Software Developer III
@@ -58,7 +58,7 @@ export default {
   computed: {
     cstChartOptions() {
       return ({
-        colors: ['#d95f02']
+        colors: ['#ef4b24']
       })
     },
     getDetailsShown() {
@@ -70,11 +70,3 @@ export default {
   }
 }
 </script>
-<style>
-.v-card--reveal {
-  bottom: 0;
-  opacity: 1 !important;
-  position: absolute;
-  width: 100%;
-}
-</style>
