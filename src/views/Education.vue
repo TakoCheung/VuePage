@@ -1,4 +1,5 @@
 <template>
+  <v-container>
     <div class="education">
       <h1>Education</h1>
       <div class="ncsu">
@@ -20,6 +21,7 @@
       </div>
       <GChart :settings="{ packages: ['timeline']}" type="Timeline" :data="wtccChartData"/>
     </div>
+  </v-container>
 </template>
 <script>
     export default {

@@ -1,5 +1,5 @@
 <template>
-
+  <v-container>
     <div class="about">
       <h1>About</h1>
       <p>Looking for a chance to impact the community or even the world that I live in with my passion.</p>
@@ -38,6 +38,7 @@
       <p>If you still can't see that I am a persistent, innovative, and stable employee,<br>
       please call and email me at the same time.</p>
     </div>
+  </v-container>
 </template>
 <script>
     export default {
