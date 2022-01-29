@@ -2,8 +2,9 @@
 <div id="app">
   <v-container>
     <nav class="main-nav">
-      <Burger />
       <VueScrollProgress />
+      <Burger />
+
       <router-view />
 
       <Sidebar>
@@ -20,9 +21,9 @@
         </ul>
       </Sidebar>
     </nav>
-    <ChatIcon/>
-    <ChatPanel/>
   </v-container>
+  <ChatIcon />
+  <ChatPanel />
 </div>
 </template>
 
@@ -70,6 +71,11 @@ body {
   background: rgba(32, 77, 72, 50%)
     /*linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,5) 48%, rgba(249,248,113,1) 100%);*/
 }
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 .logo {
   align-self: center;
@@ -112,5 +118,128 @@ li.router-link-exact-active {
 #progress-el {
   /* progress bar */
   background-color: #4285f4 !important;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* remove blue outline */
+button:focus {
+  outline: 0;
+}
+
+.burger-button {
+  position: relative;
+  height: 30px;
+  width: 32px;
+  display: block;
+  z-index: 9;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  pointer-events: all;
+  transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+}
+
+.burger-bar {
+  background-color: #130f40;
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  left: 6px;
+  height: 2px;
+  width: auto;
+  margin-top: -1px;
+  transition: transform .6s cubic-bezier(.165, .84, .44, 1), opacity .3s cubic-bezier(.165, .84, .44, 1), background-color .6s cubic-bezier(.165, .84, .44, 1);
+}
+
+.burger-bar--1 {
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
+}
+
+.burger-bar--2 {
+  transform-origin: 100% 50%;
+  transform: scaleX(.8);
+}
+
+.burger-button:hover .burger-bar--2 {
+  transform: scaleX(1);
+}
+
+.no-touchevents .burger-bar--2:hover {
+  transform: scaleX(1);
+}
+
+.burger-bar--3 {
+  transform: translateY(6px);
+}
+
+#burger.active .burger-button {
+  transform: rotate(-180deg);
+}
+
+#burger.active .burger-bar {
+  background-color: #fff;
+}
+
+#burger.active .burger-bar--1 {
+  transform: rotate(45deg)
+}
+
+#burger.active .burger-bar--2 {
+  opacity: 0;
+}
+
+#burger.active .burger-bar--3 {
+  transform: rotate(-45deg)
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.2s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translateX(-100%);
+  transition: all 150ms ease-in 0s
+}
+
+.sidebar-backdrop {
+  background-color: rgba(0, 0, 0, .5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.sidebar-panel {
+  overflow-y: auto;
+  background-color: #130f40;
+  opacity: .5;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 8;
+  padding: 3rem 20px 2rem 20px;
+  width: 300px;
+}
+
+.chatButton {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+
 }
 </style>

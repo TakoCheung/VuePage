@@ -5,7 +5,12 @@ import VueScrollProgress from 'vue-scroll-progress'
 import Header from 'v-header'
 import VueGoogleCharts from 'vue-google-charts'
 import vuetify from './plugins/vuetify'
+import { BootstrapVueIcons,BIcon } from 'bootstrap-vue'
+import VVisible from 'v-visible'
 
+Vue.use(VVisible)
+Vue.component('BIcon', BIcon)
+Vue.use(BootstrapVueIcons)
 Vue.use(VueGoogleCharts)
 Vue.use(VueScrollProgress)
 Vue.use(Header)

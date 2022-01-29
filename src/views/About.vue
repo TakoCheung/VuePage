@@ -41,7 +41,6 @@
     <p>If you are looking for a skillful employee, you could call me at <a href="tel:919-410-7738">919-410-7738</a>.</p>
     <p>If you still can't see that I am a persistent, innovative, and stable employee,<br>
       please call and email me at the same time.</p>
-    <!-- <iframe id="liveChat" src="http://75.165.162.155:3000/" style="width:100%; height:100%;"></iframe> -->
   </div>
 </v-container>
 </template>
