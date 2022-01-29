@@ -48,7 +48,7 @@ button:focus {
   height: 30px;
   width: 32px;
   display: block;
-  z-index: 999;
+  z-index: 998;
   border: 0;
   border-radius: 0;
   background-color: transparent;
