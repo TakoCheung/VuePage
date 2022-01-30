@@ -36,6 +36,9 @@ import {
   store,
   mutations
 } from '@/state/store.js';
+import {
+  toggle
+} from '@/state/chatState.js'
 export default {
   name: 'app',
   components: {
@@ -51,6 +54,7 @@ export default {
   },
   methods: {
     toggle() {
+      toggle.offChat()
       mutations.toggleNav()
     }
   }
@@ -70,11 +74,6 @@ body {
   height: 100%;
   background: rgba(32, 77, 72, 50%)
     /*linear-gradient(45deg, rgba(101,31,87,1) 0%, rgba(225,113,87,5) 48%, rgba(249,248,113,1) 100%);*/
-}
-#app {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .logo {
@@ -230,6 +229,19 @@ button:focus {
   top: 0;
   height: 100vh;
   z-index: 8;
+  padding: 3rem 20px 2rem 20px;
+  width: 300px;
+}
+
+.chat-panel {
+  overflow-y: auto;
+  background-color: white;
+  /* opacity: .9; */
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 7;
   padding: 3rem 20px 2rem 20px;
   width: 300px;
 }

@@ -9,5 +9,8 @@ export const chatPanelOpen = Vue.observable({
 export const toggle = {
     toggleChat() {
       chatPanelOpen.isChatOpen = !chatPanelOpen.isChatOpen
+    },
+    offChat(){
+      chatPanelOpen.isChatOpen = false
     }
 };
