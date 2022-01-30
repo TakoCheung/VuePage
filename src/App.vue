@@ -23,7 +23,7 @@
     </nav>
   </v-container>
   <ChatIcon />
-  <ChatPanel />
+  <ChatContainer />
 </div>
 </template>
 
@@ -31,7 +31,7 @@
 import Burger from './components/Menu/Burger.vue';
 import Sidebar from './components/Menu/Sidebar.vue';
 import ChatIcon from './components/ChatIcon.vue';
-import ChatPanel from './components/ChatPanel.vue';
+import ChatContainer from './components/ChatContainer.vue';
 import {
   store,
   mutations
@@ -45,7 +45,7 @@ export default {
     Sidebar,
     Burger,
     ChatIcon,
-    ChatPanel
+    ChatContainer
   },
   computed: {
     isBurgerActive() {
