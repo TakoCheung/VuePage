@@ -56,8 +56,16 @@ export default {
     toggle() {
       toggle.offChat()
       mutations.toggleNav()
+    },
+    visited() {
+      fetch("http://ip-api.com/json",{
+        method: 'GET'
+      }).then(response => console.log(response.json()));
     }
-  }
+  },
+  beforeMount(){
+   this.visited()
+  },
 }
 </script>
 <style>
