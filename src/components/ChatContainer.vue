@@ -6,11 +6,11 @@
 					Clear Data
 				</button>
 			</div> -->
-    <input v-model="currentUser.usuername" placeholder="Please enter your name">
+    <input v-model="currentUser.username" placeholder="Please enter your name">
     <br>
     <span v-if="showOptions" class="user-logged,button-theme" :class="{ 'user-logged-dark': darkTheme }">
       Logged as
-      <button :class="{'button-dark' : darkTheme, 'button-light' : !darkTheme}" :disabled="updatingData" @click="addData">{{currentUser.usuername}}</button>
+      <button :class="{'button-dark' : darkTheme, 'button-light' : !darkTheme}" :disabled="updatingData" @click="addData">{{currentUser.username}}</button>
     </span>
 
 
@@ -135,7 +135,7 @@ export default {
     async addData() {
       this.updatingData = true
 
-      this.currentUser._id = this.currentUser.username + Date.Now()
+      this.currentUser._id = this.currentUser.username + '_' + window.visitorIp
       this.currentUser.avatar = 'https://avatarfiles.alphacoders.com/184/thumb-184913.jpg'
 
       await firestoreService.addIdentifiedUser(this.currentUser._id, this.currentUser)

