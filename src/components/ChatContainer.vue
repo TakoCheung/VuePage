@@ -6,15 +6,18 @@
 					Clear Data
 				</button>
 			</div> -->
-    <input v-model="currentUser.username" placeholder="Please enter your name">
-    <br>
-    <span v-if="showOptions" class="user-logged,button-theme" :class="{ 'user-logged-dark': darkTheme }">
-      Logged as
-      <button :class="{'button-dark' : darkTheme, 'button-light' : !darkTheme}" :disabled="updatingData" @click="addData">{{currentUser.username}}</button>
-    </span>
+    <div>
+      <input v-model="currentUser.username" placeholder="Please enter your name">
+    </div>
+    <!-- @mouseover="hover = true" @mouseleave="hover = false" :class="{'button-dark' : hover, 'button-light' : !hover}" -->
+    <b-button variant="outline-primary" :disabled="updatingData" @click="addData" >
+      <span :class="{'user-logged-dark': darkTheme }">
+        Logged as {{currentUser.username}}
+      </span>
+    </b-button>
 
+    <div class="button-theme">
 
-    <div v-if="showOptions" class="button-theme">
       <button :class="{'button-dark' : darkTheme, 'button-light' : !darkTheme}" @click="theme = darkTheme ? 'light' : 'dark'">
         {{darkTheme ? "Dark" : "Light"}}
       </button>
@@ -52,6 +55,7 @@ export default {
   data() {
     return {
       theme: 'light',
+      hover: false,
       showChat: true,
       myUser: {
         _id: 'Tako',
@@ -71,9 +75,6 @@ export default {
   },
 
   computed: {
-    showOptions() {
-      return !this.isDevice || this.showDemoOptions
-    },
     isPanelOpen() {
       return chatPanelOpen.isChatOpen
     },
@@ -145,7 +146,6 @@ export default {
       })
 
       this.updatingData = false
-      location.reload()
     }
   }
 }
