@@ -135,31 +135,6 @@ export default {
     async addData() {
       this.updatingData = true
 
-      // const user1 = this.users[0]
-      // await firestoreService.addIdentifiedUser(user1._id, user1)
-      //
-      // const user2 = this.users[1]
-      // await firestoreService.addIdentifiedUser(user2._id, user2)
-      //
-      // const user3 = this.users[2]
-      // await firestoreService.addIdentifiedUser(user3._id, user3)
-      //
-      // await firestoreService.addRoom({
-      // 	users: [user1._id, user2._id],
-      // 	lastUpdated: new Date()
-      // })
-      // await firestoreService.addRoom({
-      // 	users: [user1._id, user3._id],
-      // 	lastUpdated: new Date()
-      // })
-      // await firestoreService.addRoom({
-      // 	users: [user2._id, user3._id],
-      // 	lastUpdated: new Date()
-      // })
-      // await firestoreService.addRoom({
-      // 	users: [user1._id, user2._id, user3._id],
-      // 	lastUpdated: new Date()
-      // })
       this.currentUser._id = this.currentUser.username + Date.Now()
       this.currentUser.avatar = 'https://avatarfiles.alphacoders.com/184/thumb-184913.jpg'
 
