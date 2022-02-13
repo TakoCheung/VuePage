@@ -18,6 +18,9 @@
           <li @click="toggle">
             <router-link to="/WorkExpriences">Work Expriences</router-link>
           </li>
+          <li @click="toggle">
+            <router-link to="/Demo">Demo</router-link>
+          </li>
         </ul>
       </Sidebar>
     </nav>
@@ -64,7 +67,7 @@ export default {
           })
           .then(response => response.json())
           .then(data => {
-            window.visitorIp = data.query;
+            window.visitorIp = data.query.replaceAll('.','_');
             return fetch("https://api.telegram.org/bot315993652:AAER_pkBxCaLUvHnGhJLrXLR0oHQ0fHBEfM/sendMessage", {
               method: 'POST',
               headers: {

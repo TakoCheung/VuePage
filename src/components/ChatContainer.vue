@@ -62,12 +62,12 @@ export default {
         username: 'Tako',
         avatar: 'https://avatarfiles.alphacoders.com/184/thumb-184913.jpg'
       },
-      currentUserId: '6R0MijpK6M4AIrwaaCY2',
+      currentUserId: window.visitorIp || 'noIp',
       isDevice: false,
       showDemoOptions: false,
       updatingData: false,
       currentUser: {
-        _id: '',
+        _id: 'window.visitorIp',
         username: '',
         avatar: 'https://avatarfiles.alphacoders.com/184/thumb-184913.jpg'
       }
@@ -135,8 +135,10 @@ export default {
     },
     async addData() {
       this.updatingData = true
+      var curId = this.currentUser.username + '_' + window.visitorIp
 
-      this.currentUser._id = this.currentUser.username + '_' + window.visitorIp
+      this.currentUser._id = curId
+      this.currentUserId = curId
       this.currentUser.avatar = 'https://avatarfiles.alphacoders.com/184/thumb-184913.jpg'
 
       await firestoreService.addIdentifiedUser(this.currentUser._id, this.currentUser)

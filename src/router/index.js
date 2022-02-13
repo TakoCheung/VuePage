@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import About from '../views/About.vue'
 import Education from '../views/Education.vue'
 import WorkExpriences from '../views/WorkExp.vue'
+import Demo from '../views/Demo.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,11 @@ Vue.use(VueRouter)
     path: '/WorkExpriences',
     name: 'WorkExpriences',
     component: WorkExpriences
+  },
+  {
+    path: '/Demo',
+    name: 'Demo',
+    component: Demo
   }
 ]
 
