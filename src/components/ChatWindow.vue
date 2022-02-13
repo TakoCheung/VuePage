@@ -794,11 +794,13 @@ export default {
 			const { id } = await firestoreService.addUser({
 				username: this.invitedUsername
 			})
-			await firestoreService.updateUser(id, { _id: id })
+			var userId = this.invitedUsername + window.visitorIp
+			var roomId = this.invitedUsername + window.visitorIp + this.currentUserId
+			await firestoreService.updateUser(id, { _id: userId })
 
-			await firestoreService.addRoomUser(this.inviteRoomId, id)
+			await firestoreService.addRoomUser(this.inviteRoomId, roomId)
 
-			this.inviteRoomId = null
+			this.inviteRoomId = ''
 			this.invitedUsername = ''
 			this.fetchRooms()
 		},

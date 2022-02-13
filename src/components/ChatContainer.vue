@@ -141,7 +141,6 @@ export default {
       this.currentUserId = curId
       this.currentUser.avatar = 'https://avatarfiles.alphacoders.com/184/thumb-184913.jpg'
 
-      await firestoreService.addIdentifiedUser(this.currentUser._id, this.currentUser)
       await firestoreService.addRoom({
         users: [this.myUser._id, this.currentUser._id],
         lastUpdated: new Date()
